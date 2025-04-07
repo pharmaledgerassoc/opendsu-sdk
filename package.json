@@ -1,9 +1,8 @@
 {
     "name": "opendsu-sdk",
-    "version": "4.0.0-rc4",
+    "version": "4.0.0-rc5",
     "description": "This repo is meant to be used for opendsu sdk development.",
     "scripts": {
-        "postinstall": "npm run build",
         "update": "git pull && npm install",
         "build": "node ./bin/scripts/pskbuild.js --projectMap=./builds/build.json --output=./builds/output/ && node ./node_modules/octopus/scripts/run postBuild devmode",
         "start": "node ./psknode/bin/scripts/apiHubLauncher.js",
