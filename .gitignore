@@ -1,11 +1,10 @@
 env.json.devel
 *_intermediar.js
-modules
-node_modules
 .idea
 builds/tmp/*_intermediar.js
 builds/output/
 psknode/bundles
 !psknode/bin/scripts/migrations/
 node_modules
+builds/output/*
 latest-change-set.txt

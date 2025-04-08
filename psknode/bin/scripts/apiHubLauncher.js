@@ -1,5 +1,6 @@
 let path = require("path");
 const process = require("process");
+const nano = require("nano");
 let dirname = __dirname;
 process.env.PSK_ROOT_INSTALATION_FOLDER = path.resolve(path.join(__dirname, "../../../"));
 require(path.join(__dirname, '../../../builds/output/pskWebServer.js'));
@@ -103,11 +104,11 @@ function launch() {
     function startLightDBInstance(callback) {
         if (!process.env.LIGHT_DB_SERVER_ADDRESS) {
             const ligthDBPort = process.env.LIGHT_DB_PORT || 8081;
-            const {createLightDBServerInstance} = require("loki-enclave-facade");
+            const {createCouchDBServerInstance} = require("loki-enclave-facade");
             const storage = process.env.LIGHT_DB_STORAGE || config.lightDBStorage || path.join(rootFolder, "external-volume/lightDB");
             config.lightDBStorage = storage;
             config.lightDBPort = ligthDBPort;
-            createLightDBServerInstance(config, (err) => {
+            createCouchDBServerInstance(config, (err) => {
                 if (err) {
                     logger.error(`Failed to start LightDB instance`);
                     return logger.error(err);
